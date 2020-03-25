@@ -29,8 +29,6 @@ class FormTest extends TestCase
     /** @test */
     function renders_a_form_with_put_method()
     {
-        $this->markTestIncomplete('Complete test!');
-
         $this->assertTemplateRenders(
             '<form method="post"><input type="hidden" name="_method" value="put"></form>',
             '<x-form method="put"></x-form>'
@@ -40,11 +38,18 @@ class FormTest extends TestCase
     /** @test */
     function renders_a_form_with_patch_method()
     {
-        $this->markTestIncomplete('Complete test!');
-
         $this->assertTemplateRenders(
             '<form method="post"><input type="hidden" name="_method" value="patch"></form>',
             '<x-form method="patch"></x-form>'
+        );
+    }
+
+    /** @test */
+    function renders_a_form_with_delete_method()
+    {
+        $this->assertTemplateRenders(
+            '<form method="post"><input type="hidden" name="_method" value="delete"></form>',
+            '<x-form method="delete"></x-form>'
         );
     }
 

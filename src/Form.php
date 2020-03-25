@@ -11,10 +11,17 @@ class Form extends Component
      */
     public $method;
 
+    protected $specialMethods = ['put', 'patch', 'delete'];
+
     public function __construct(string $method = 'get')
     {
 
         $this->method = $method;
+    }
+
+    public function specialMethod()
+    {
+        return in_array($this->method, $this->specialMethods);
     }
 
     public function render()
